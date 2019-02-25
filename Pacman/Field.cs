@@ -10,7 +10,7 @@ namespace Pacman
         {
             if (HasCoin)
             {
-                ConsoleHelper.Write(ConsoleColor.DarkYellow, "* ");
+                ConsoleHelper.Write(ConsoleColor.DarkMagenta, "* ");
                 return;
             }
 
