@@ -3,6 +3,7 @@ using Pacman;
 using System;
 using System.IO;
 using System.Text;
+using Pacman.Test.Helpers;
 
 namespace Pacman.Test
 {
@@ -38,6 +39,67 @@ namespace Pacman.Test
             // Assert
             var expectedOutput = GetTestFile("SetupBoard.txt");
             Assert.AreEqual(expectedOutput, output.ToString());
+        }
+
+        [Test]
+        public void SetupBoardWithGhost()
+        {
+            // Arrange
+            var game = new Game();
+            game.Ghosts.Add(new Ghost(new FakeRandomDirections(Direction.Right))
+            {
+                Position = new Position(0, 0)
+            });
+
+            // Act
+            game.Display();
+
+            // Assert
+            var expectedOutput = GetTestFile("SetupBoardWithGhost.txt");
+            Assert.AreEqual(expectedOutput, output.ToString());
+        }
+
+        [Test]
+        public void TestGhostMovements()
+        {
+            // Arrange
+            var game = new Game();
+            game.Ghosts.Add(new Ghost(new FakeRandomDirections(Direction.Right, Direction.Down))
+            {
+                Position = new Position(0, 0)
+            });
+
+            // Act
+            game.Tick();
+            game.Tick();
+
+            game.Display();
+            
+            // Assert
+            Assert.AreEqual(1, game.Ghosts[0].Position.Y);
+            Assert.AreEqual(1, game.Ghosts[0].Position.X);
+            var expectedOutput = GetTestFile("TestGhostMovements.txt");
+            Assert.AreEqual(expectedOutput, output.ToString());
+        }
+
+        [Test]
+        public void HittingGhostIsGameover()
+        {
+            // Arrange
+            var game = new Game();
+            game.ChangeDirection(Direction.Right);
+            game.Pacman.Position = new Position(5,5);
+            game.Ghosts.Add(new Ghost(new FakeRandomDirections(Direction.Left))
+            {
+                Position = new Position(6, 5)
+            });
+
+            // Act
+            game.Tick();
+            game.Display();
+
+            // Assert
+            Assert.IsTrue(game.GameOver);
         }
 
         [Test]

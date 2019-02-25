@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Pacman
 {
@@ -7,7 +9,10 @@ namespace Pacman
         public const int Columns = 10;
         public const int Rows = 10;
 
+        public bool GameOver { get; private set; } = false;
+
         public Field[,] Fields { get; } = new Field[Rows, Columns];
+        public List<Ghost> Ghosts { get; } = new List<Ghost>();
 
         public Pacman Pacman { get; }
 
@@ -25,8 +30,29 @@ namespace Pacman
         }
         public void Tick()
         {
+            if (GameOver) return;
+
             Pacman.Move();
             Pacman.CollectCoins();
+            
+
+            foreach (var ghost in Ghosts)
+            {
+                if (ghost.Position.X == Pacman.Position.X && ghost.Position.Y == Pacman.Position.Y)
+                {
+                    GameOver = true;
+                    break;
+                }
+
+                ghost.Move();
+
+                if (ghost.Position.X == Pacman.Position.X && ghost.Position.Y == Pacman.Position.Y)
+                {
+                    GameOver = true;
+                    break;
+                }
+            }
+
         }
 
         public void ChangeDirection(Direction direction)
@@ -59,6 +85,13 @@ namespace Pacman
             {
                 for (var column = 0; column < Columns; column++)
                 {
+                    if (Ghosts.Any(x => x.Position.X == column && x.Position.Y == row))
+                    {
+                        var ghost = Ghosts.First(x => x.Position.X == column && x.Position.Y == row);
+                        ghost.Display();
+                        continue;
+                    }
+
                     if (Pacman.Position.Y == row && Pacman.Position.X == column)
                     {
                         Pacman.Display();

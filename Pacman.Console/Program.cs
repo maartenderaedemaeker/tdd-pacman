@@ -25,6 +25,26 @@ namespace Pacman.Console
                 field.HasCoin = true;
             }
 
+            game.Ghosts.Add(new Ghost(new RandomDirectionHelper())
+            {
+                Position = new Position(0, 0)
+            });
+
+            game.Ghosts.Add(new Ghost(new RandomDirectionHelper())
+            {
+                Position = new Position(0, 9)
+            });
+
+            game.Ghosts.Add(new Ghost(new RandomDirectionHelper())
+            {
+                Position = new Position(9, 0)
+            });
+
+            game.Ghosts.Add(new Ghost(new RandomDirectionHelper())
+            {
+                Position = new Position(9, 9)
+            });
+
             Task.Factory.StartNew(() =>
             {
                 while (!exitRequested)

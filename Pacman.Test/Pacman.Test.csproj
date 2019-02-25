@@ -44,6 +44,12 @@
     <None Update="BoardPositions\PacmanCollectsCoin.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="BoardPositions\TestGhostMovements.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="BoardPositions\SetupBoardWithGhost.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="BoardPositions\SetupBoard.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
