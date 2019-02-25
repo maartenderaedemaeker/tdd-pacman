@@ -26,6 +26,7 @@ namespace Pacman
         public void Tick()
         {
             Pacman.Move();
+            Pacman.CollectCoins();
         }
 
         public void ChangeDirection(Direction direction)

@@ -208,5 +208,29 @@ namespace Pacman.Test
             var expectedOutput = GetTestFile("PacmanMovingDownAWall.txt");
             Assert.AreEqual(expectedOutput, output.ToString());
         }
+
+        [Test]
+        public void CollectCoin()
+        {
+            // Arrange
+            var game = new Game();
+            game.Pacman.Position = new Position(5, 5);
+            game.Pacman.Direction = Direction.Right;
+
+            foreach (var field in game.Fields)
+            {
+                field.HasCoin = true;
+            }
+
+            game.Fields[5, 5].HasCoin = false;
+            
+            // Act
+            game.Tick();
+            game.Display();
+            
+            // Arrange
+            var expectedOutput = GetTestFile("PacmanCollectsCoin.txt");
+            Assert.AreEqual(expectedOutput, output.ToString());
+        }
     }
 }

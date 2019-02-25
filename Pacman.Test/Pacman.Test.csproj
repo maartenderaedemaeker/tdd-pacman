@@ -41,6 +41,9 @@
     <None Update="BoardPositions\PacmanMovingRightNoWall.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="BoardPositions\PacmanCollectsCoin.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="BoardPositions\SetupBoard.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

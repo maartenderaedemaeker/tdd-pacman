@@ -20,6 +20,11 @@ namespace Pacman.Console
                 System.Console.WriteLine("Exit requested");
             };
 
+            foreach (var field in game.Fields)
+            {
+                field.HasCoin = true;
+            }
+
             Task.Factory.StartNew(() =>
             {
                 while (!exitRequested)
