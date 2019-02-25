@@ -40,9 +40,10 @@ namespace Pacman
             DisplayFooter();
         }
 
-        private static void DisplayHeader()
+        private void DisplayHeader()
         {
             ConsoleHelper.WriteLine(ConsoleColor.Yellow, "Pacman");
+            ConsoleHelper.WriteLine(ConsoleColor.DarkRed, $"Score: {Pacman.Score}");
             ConsoleHelper.WriteLine(ConsoleColor.DarkBlue, new string('-', 20));
         }
 

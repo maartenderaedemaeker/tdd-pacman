@@ -6,6 +6,7 @@ namespace Pacman
     {
         public Position Position { get; set;  }
         public Direction Direction { get; set; }
+        public int Score { get; } = 0;
         public Game Game { get; }
 
         public Pacman(Position position, Direction startDirection, Game game)
