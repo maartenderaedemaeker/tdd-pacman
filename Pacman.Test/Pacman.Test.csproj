@@ -17,10 +17,22 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="BoardPositions\PacmanMovingDownAWall.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="BoardPositions\PacmanMovingLeftAWall.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="BoardPositions\PacmanMovingLeftNoWall.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="BoardPositions\PacmanMovingDownNoWall.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="BoardPositions\PacmanMovingRightAWall.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="BoardPositions\PacmanMovingUpAWall.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="BoardPositions\PacmanMovingUpNoWall.txt">

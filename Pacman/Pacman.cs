@@ -17,22 +17,22 @@ namespace Pacman
 
         public void Move()
         {
-            if (Direction == Direction.Right)
+            if (Direction == Direction.Right && Position.X < Game.Columns - 1)
             {
                 Position = new Position(Position.X  + 1, Position.Y);
             }
 
-            if (Direction == Direction.Left)
+            if (Direction == Direction.Left && Position.X > 0)
             {
                 Position = new Position(Position.X - 1, Position.Y);
             }
 
-            if (Direction == Direction.Up)
+            if (Direction == Direction.Up && Position.Y > 0)
             {
                 Position = new Position(Position.X, Position.Y - 1);
             }
 
-            if (Direction == Direction.Down)
+            if (Direction == Direction.Down && Position.Y < Game.Rows - 1)
             {
                 Position = new Position(Position.X, Position.Y + 1);
             }
