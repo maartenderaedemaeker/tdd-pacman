@@ -4,7 +4,7 @@ namespace Pacman
 {
     public class Pacman : IConsoleDisplayer
     {
-        public Position Position { get; }
+        public Position Position { get; set;  }
         public Direction Direction { get; set; }
 
         public Pacman(Position position, Direction startDirection)
