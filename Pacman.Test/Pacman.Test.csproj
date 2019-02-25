@@ -17,6 +17,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="BoardPositions\PacmanMovingLeftNoWall.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="BoardPositions\PacmanMovingDownNoWall.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="BoardPositions\PacmanMovingUpNoWall.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="BoardPositions\PacmanMovingRightNoWall.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="BoardPositions\SetupBoard.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

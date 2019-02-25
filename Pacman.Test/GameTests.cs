@@ -26,7 +26,7 @@ namespace Pacman.Test
         }
 
         [Test]
-        public void GameSetupTest()
+        public void SetupBoard()
         {
             // Arrange
             var game = new Game();
@@ -37,6 +37,90 @@ namespace Pacman.Test
 
             // Assert
             var expectedOutput = GetTestFile("SetupBoard.txt");
+            Assert.AreEqual(expectedOutput, output.ToString());
+        }
+
+        [Test]
+        public void PacmanMovingRightNoWall()
+        {
+            // Arrange
+            var game = new Game();
+            game.Pacman.Position = new Position(5, 5);
+            game.Pacman.Direction = Direction.Right;
+
+            // Act
+            game.Tick();
+            game.Display();
+
+            // Assert
+            Assert.AreEqual(game.Pacman.Direction, Direction.Right);
+            Assert.AreEqual(6, game.Pacman.Position.X);
+            Assert.AreEqual(5, game.Pacman.Position.Y);
+
+            var expectedOutput = GetTestFile("PacmanMovingRightNoWall.txt");
+            Assert.AreEqual(expectedOutput, output.ToString());
+        }
+
+        [Test]
+        public void PacmanMovingLeftNoWall()
+        {
+            // Arrange
+            var game = new Game();
+            game.Pacman.Position = new Position(5, 5);
+            game.Pacman.Direction = Direction.Left;
+
+            // Act
+            game.Tick();
+            game.Display();
+
+            // Assert
+            Assert.AreEqual(game.Pacman.Direction, Direction.Left);
+            Assert.AreEqual(4, game.Pacman.Position.X);
+            Assert.AreEqual(5, game.Pacman.Position.Y);
+
+            var expectedOutput = GetTestFile("PacmanMovingLeftNoWall.txt");
+            Assert.AreEqual(expectedOutput, output.ToString());
+        }
+
+        [Test]
+        public void PacmanMovingUpNoWall()
+        {
+            // Arrange
+            var game = new Game();
+            game.Pacman.Position = new Position(5, 5);
+            game.Pacman.Direction = Direction.Up;
+
+            // Act
+            game.Tick();
+            game.Display();
+
+            // Assert
+            Assert.AreEqual(game.Pacman.Direction, Direction.Up);
+            Assert.AreEqual(5, game.Pacman.Position.X);
+            Assert.AreEqual(4, game.Pacman.Position.Y);
+
+            var expectedOutput = GetTestFile("PacmanMovingUpNoWall.txt");
+            Assert.AreEqual(expectedOutput, output.ToString());
+        }
+
+        [Test]
+        public void PacmanMovingDownNoWall()
+        {
+            // Arrange
+            var game = new Game();
+            game.Pacman.Position = new Position(5, 5);
+            game.Pacman.Direction = Direction.Down;
+
+            // Act
+            game.Tick();
+            game.Display();
+
+            // Assert
+            Assert.AreEqual(game.Pacman.Direction, Direction.Down);
+            Assert.AreEqual(5, game.Pacman.Position.X);
+            Assert.AreEqual(6, game.Pacman.Position.Y);
+
+            var expectedOutput = GetTestFile("PacmanMovingDownNoWall.txt");
             Assert.AreEqual(expectedOutput, output.ToString());
         }
     }

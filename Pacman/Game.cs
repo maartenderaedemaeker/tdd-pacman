@@ -4,8 +4,8 @@ namespace Pacman
 {
     public class Game : IConsoleDisplayer
     {
-        private const int Columns = 10;
-        private const int Rows = 10;
+        public const int Columns = 10;
+        public const int Rows = 10;
 
         public Field[,] Fields { get; } = new Field[Rows, Columns];
 
@@ -21,11 +21,11 @@ namespace Pacman
                 }
             }
 
-            Pacman = new Pacman(new Position(Rows / 2, Columns / 2), Direction.Right);
+            Pacman = new Pacman(new Position(Rows / 2, Columns / 2), Direction.Right, this);
         }
         public void Tick()
         {
-
+            Pacman.Move();
         }
 
         public void ChangeDirection(Direction direction)
@@ -57,7 +57,7 @@ namespace Pacman
             {
                 for (var column = 0; column < Columns; column++)
                 {
-                    if (Pacman.Position.X == row && Pacman.Position.Y == column)
+                    if (Pacman.Position.Y == row && Pacman.Position.X == column)
                     {
                         Pacman.Display();
                         continue;
